@@ -88,7 +88,7 @@ function draw() {
     textFont('cursive', 40);
     textSize(30);
     textAlign(CENTER);
-    text('GAME OVER', 225, 150);
+    text('WINNER', 225, 150);
     text('Score: ' + score, 225, 200);
     pop();
     noLoop()
