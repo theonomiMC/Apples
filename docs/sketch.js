@@ -9,9 +9,6 @@ var buttonPlay;
 var timer = 15;
 var pball;
 var basket_H = 59;
-var life=3;
-
-
 
 // load background image
 function preload() {
@@ -34,15 +31,14 @@ function setup() {
    }
    
   pball = new pBall(x, y, r= 20);
-    setInterval(timeIt, 1000);
+  setInterval(timeIt, 1000);
     
 }
 
 function Play() {
- score = 0; 
- life=3;
- timer = 15;
- loop(); 
+   score = 0; 
+   timer = 15;
+   loop(); 
  
 }
 
@@ -60,28 +56,23 @@ function draw() {
   stroke(0);
   strokeWeight(3);
   let eater = image(basket, mouseX, height-basket_H);
- 
   pop();
+  
   //intersection of green apple;
   if (pball.intersects(eater)) {
-    life--;
-   push();
-    // textFont('cursive', 50);
-    textSize(30);
-    textAlign(CENTER);
-    text('Life: ' + life, 200, 250);
-    pop();
-    
+    score--;
+    console.log('green apple ate')
     }
  //intersection of red apple;
   for (let i = 0; i < balls.length; i++) {
   if (balls[i].intersects(eater)) {
     score++;
     push();
-      fill(255);
-      textSize(20);
-      text('score:' + score, 90, 300);
+    fill(255);
+    textSize(20);
+    text('score:' + score, 90, 300);
     pop();
+
     }
   }
   //time and game status check;
@@ -92,16 +83,6 @@ function draw() {
     text('time: ' + timer, 10, 80);
   }
   if (timer == 0 && score >= 35) {
-    if(life >= 0){
-    push();
-    textFont('cursive', 50);
-    textSize(30);
-    textAlign(CENTER);
-    text('WINNER', 225, 150);
-    text('Score: ' + score, 225, 200);
-    pop();
-    noLoop();
-    }else{
 //--Score text---      
     push();
     textFont('cursive', 40);
@@ -110,16 +91,8 @@ function draw() {
     text('GAME OVER', 225, 150);
     text('Score: ' + score, 225, 200);
     pop();
- //---life text----    
-    push();
-    textSize(25);
-    textAlign(CENTER);
-    fill(255,0,0)
-    text('Life: ' + life, 225, 250);
-    pop();
-      
     noLoop()
-    }
+    // }
     
   }
   if (timer == 0 && score < 35 ) {
@@ -131,14 +104,6 @@ function draw() {
     text('GAME OVER', 225, 150);
     text('Score: ' + score, 225, 200);
     pop();
- //---life text---  
-    push();
-    textSize(25);
-    textAlign(CENTER);
-    fill(255,0,0);
-    text('Life: ' + life, 225, 250);
-    pop();
-    
     noLoop();
   }
 }
@@ -167,11 +132,11 @@ show() {
  
 move() {
     
-    let speed = 14;
+    let speed = 15;
     this.y = this.y + speed;
     if (this.y + speed > height) {
     this.y = 0;
-    this.x = random(width*0.9) + speed;
+    this.x = random(width*0.7) + speed;
     
     }
   }
