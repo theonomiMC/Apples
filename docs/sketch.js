@@ -40,6 +40,7 @@ function setup() {
 
 function Play() {
  score = 0; 
+ life=3;
  timer = 15;
  loop(); 
  
