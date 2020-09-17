@@ -91,7 +91,7 @@ function draw() {
   if (timer < 15) {
     text('time: ' + timer, 10, 80);
   }
-  if (timer == 0 && score >= 40) {
+  if (timer == 0 && score >= 35) {
     if(life >= 0){
     push();
     textFont('cursive', 50);
@@ -122,7 +122,7 @@ function draw() {
     }
     
   }
-  if (timer == 0 && score < 40 ) {
+  if (timer == 0 && score < 35 ) {
 //--Score text---    
     push();
     textFont('cursive', 40);
