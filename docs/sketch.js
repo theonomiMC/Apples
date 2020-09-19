@@ -45,25 +45,23 @@ function Play() {
 function draw() {
    
   background(bg);
+//  --red apple movement--- 
   for (let i=0; i< balls.length; i++) {
    balls[i].show();
    balls[i].move();
  }
+//  --green apple movement--- 
   pball.show();
   pball.move();
-  push();
-  fill(230, 230, 0);
-  stroke(0);
-  strokeWeight(3);
+//----basket---  
   let eater = image(basket, mouseX, height-basket_H);
-  pop();
   
-  //intersection of green apple;
+//--intersection of green apple---
   if (pball.intersects(eater)) {
     score--;
     console.log('green apple ate')
     }
- //intersection of red apple;
+//--intersection of red apple---
   for (let i = 0; i < balls.length; i++) {
   if (balls[i].intersects(eater)) {
     score++;
@@ -72,17 +70,16 @@ function draw() {
     textSize(20);
     text('score:' + score, 90, 300);
     pop();
-
     }
   }
-  //time and game status check;
+//---time and game status check---
   if (timer >= 15) {
     text("time: " + timer, 10, 80);
   }
   if (timer < 15) {
     text('time: ' + timer, 10, 80);
   }
-  if (timer == 0 && score >= 15) {
+  if (timer == 0 && score >= 20) {
 //--Score text---      
     push();
     textFont('cursive', 40);
@@ -91,11 +88,10 @@ function draw() {
     text('WINNER', 225, 150);
     text('Score: ' + score, 225, 200);
     pop();
-    noLoop()
-    // }
     
+    noLoop()
   }
-  if (timer == 0 && score < 15 ) {
+  if (timer == 0 && score < 20 ) {
 //--Score text---    
     push();
     textFont('cursive', 40);
@@ -113,25 +109,22 @@ function timeIt() {
   }
 }
 
-  
+//---RED BALL  class---  
 class Ball {
   constructor(x, y, r) {
   this.x = x;
   this.y = y;
   this.r = r;
-
   }
+//---intersection---  
   intersects() {
    let d1 = dist(this.x, this.y, mouseX, 350)
-   return(d1 < this.r);
-   
+   return(d1 < this.r);   
   }
 show() {
   image(apple, this.x, this.y);
   }
- 
-move() {
-    
+move() {   
     let speed = 15;
     this.y = this.y + speed;
     if (this.y + speed > height) {
