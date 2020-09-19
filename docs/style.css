@@ -29,7 +29,7 @@ canvas {
 }
 button{
   margin: 10px;
-  background-color: #513823;
+  background-color: #512723;
   color: #fff;
   padding: 12px 70px;
   border: none;
@@ -43,8 +43,8 @@ button{
    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 button:hover{
- transform: scale(1.1);
- background-color: #6c4b2f;
+/*  transform: scale(1.1); */
+ background-color: #6c322f;
   box-shadow: 0 7px 15px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 p{
